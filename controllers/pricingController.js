@@ -25,7 +25,7 @@ const calculatePrice = async(req,res)=>{
             total_distance
         )
         // console.log(totalPrice);
-        res.status(200).json({"\nTotal price" :totalPrice})
+        res.status(200).json({"Total price" :totalPrice})
     }catch(err){
         console.log(err);
         res.status(500).json({error:"ineternal server error"})

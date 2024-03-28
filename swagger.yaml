@@ -1,0 +1,50 @@
+openapi: 3.0.0
+info:
+  title: Food Delivery App 
+  description: API Documentation
+  version: 0.1.0
+
+  servers:
+  - url: http://localhost:3000
+    description: this url for local host
+#  - url: https://deployed-url.com
+#    description: this url for deployed one
+
+paths:
+  /calculate-price:
+    post:
+      summary: Returns calculated price of food delivery.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                zone:
+                  type: string
+                organization_id:
+                  type: string
+                total_distance:
+                  type: integer
+                  format: int64
+                item_type:
+                  type: string
+      responses:
+        '200':
+          description: price object.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_price:
+                    type: integer
+                    format: int64
+                    example: 120    
+        '400':
+          description: Bad Request.
+        '500':
+          description: Internal Server Error.
+        default :
+          description: Unexpected Error.
