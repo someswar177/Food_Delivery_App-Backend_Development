@@ -4,6 +4,7 @@ const calculatePrice = require('./controllers/pricingController')
 
 const app = express();
 app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/calculate-price',calculatePrice);  //Route for food delivery 
 

@@ -4,7 +4,7 @@ const findPricingByOrganizationAndItemAndZone = require('../models/pricing');
 const priceCalculator = require('../services/priceCalculator');
 
 const calculatePrice = async(req,res)=>{
-    // console.log("this is req body",req.body);
+    console.log("this is req body",req.body);
     const {zone,organization_id,total_distance,item_type} = req.body;
     if (!zone || !organization_id || !total_distance || !item_type) {
         return res.status(400).json({ error: 'Invalid request payload' });
