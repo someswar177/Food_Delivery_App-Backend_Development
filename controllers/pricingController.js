@@ -11,8 +11,8 @@ const calculatePrice = async(req,res)=>{
     }
     try{
         const organization = await findOrganizationById(organization_id);
-        const item = await findItemByType(item_type);
-        const pricing = await findPricingByOrganizationAndItemAndZone(organization.id,item.id,zone);
+        const item = await findItemByType(item_type.toLowerCase());
+        const pricing = await findPricingByOrganizationAndItemAndZone(organization.id,item.id,zone.toLowerCase());
         if(!pricing){
             return res.status(400).json({error:"Pricing is not found with your input"});
         }
@@ -24,7 +24,6 @@ const calculatePrice = async(req,res)=>{
             pricing.km_price,
             total_distance
         )
-        // console.log(totalPrice);
         res.status(200).json({"Total price" :totalPrice})
     }catch(err){
         console.log(err);
