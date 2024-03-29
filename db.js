@@ -1,14 +1,35 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-const pool = new Pool({
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    database: process.env.DB_NAME
-});
+// const pool = new Pool({
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASSWORD,
+//     host: process.env.DB_HOST,
+//     port: process.env.DB_PORT,
+//     database: process.env.DB_NAME
+// });
 
+const poolConfig = {
+    max: 5,
+    min: 2,
+    idleTimeoutMillis: 600000,
+};
+
+const user = process.env.DB_USER;
+const password = process.env.DB_PASSWORD;
+const host = process.env.DB_HOST;
+const port = process.env.DB_PORT;
+const database = process.env.DB_NAME;
+
+// poolConfig.connectionString = `postgres://${user}:${password}@${host}:${port}/${database}`;
+// const pool = new Pool(poolConfig);
+
+const pool = new Pool({
+    connectionString: process.env.Internal_DB_URL,
+    ssl: {
+        rejectUnauthorized: false // For development purposes only. Set to true in production
+    }
+});
 module.exports = pool;
 
 // CREATE TABLE organization (
