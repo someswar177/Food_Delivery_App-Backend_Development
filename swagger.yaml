@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Food Delivery API
+  title: Food Delivery App API
   version: 1.0.0
   description: API documentation for the food delivery app
 servers:
@@ -41,5 +41,13 @@ paths:
               schema:
                 type: object
                 properties:
-                  Total Price:
+                  Base distance:
+                    type: number
+                  Fixed price:
+                    type: number
+                  Price per km:
+                    type: number
+                  Total distance:
+                    type: number
+                  Total price:
                     type: number
