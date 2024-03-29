@@ -27,4 +27,4 @@ CREATE TABLE pricing (
 );
 `
 
-// module.exports = { organizationSchema, itemSchema, pricingSchema };
+module.exports = { organizationSchema, itemSchema, pricingSchema };

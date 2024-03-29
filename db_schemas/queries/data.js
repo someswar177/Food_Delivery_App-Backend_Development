@@ -41,4 +41,4 @@ INSERT INTO pricing (organization_id, item_id, zone, base_distance_in_km, km_pri
 (6, 7, 'north', 5, 2, 15),
 (6, 8, 'north', 5, 2, 12);
 `
-// module.exports = {insertOrganizationData,insertItemData,insertPricingData};
+module.exports = {insertOrganizationData,insertItemData,insertPricingData};

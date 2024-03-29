@@ -1,5 +1,3 @@
-# Food_Delivery_App-Backend_Development
-
 **Food Delivery API Setup Guide**
 
 Here's a basic setup guide for setting up the project and database locally for your food delivery API:
