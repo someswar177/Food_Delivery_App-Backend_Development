@@ -25,7 +25,8 @@ const database = process.env.DB_NAME;
 // const pool = new Pool(poolConfig);
 
 const pool = new Pool({
-    connectionString: process.env.Internal_DB_URL,
+    // connectionString: "process.env.External_DB_URL_Render",
+    connectionString: process.env.External_DB_URL_Render || process.env.Internal_DB_URL_Render ,
     ssl: {
         rejectUnauthorized: false // For development purposes only. Set to true in production
     }
